@@ -1,6 +1,5 @@
 <?php
 require_once './models/User.php';
-require_once './models/Login.php';
 
 
 class LoginController
@@ -77,12 +76,12 @@ class LoginController
                         if((int)$_SESSION['login']['role'] == 1){
                             $_SESSION['hi']="Đăng nhập thành công admin.!!!";
                                 
-                                header('location: admin');
+                                header('location: product');
                                 exit();
                         }else{
                             if(isset($_SESSION['cart'])){
                                 $_SESSION['T_pay']="Đăng nhập thành công user và tiến hành thanh toán!!!";
-                                header('location: pay');
+                                header('location: posPay');
                                 exit();
                             }else{
                                 $_SESSION['Ok']="Đăng nhập thành công user.!!!";

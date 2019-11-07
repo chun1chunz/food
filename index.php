@@ -23,10 +23,7 @@ require_once "./controllers/HomeController.php";
 //login
 require_once "./controllers/LoginController.php";
 //admin
-require_once "./controllers/admin/UserController.php";
-require_once "./controllers/admin/AdminController.php";
-require_once "./controllers/admin/ProductController.php";
-require_once "./controllers/admin/OrderController.php";
+
 
 switch($url){
     case '/':
@@ -37,17 +34,9 @@ switch($url){
         $ctr = new HomeController();
         echo $ctr->index();
         break;
-    case 'cart':
-        $ctr = new HomeController();
-        echo $ctr->cart();
-        break;
     case 'addCart':
         $ctr = new HomeController();
         echo $ctr->addCart();
-        break;
-    case 'update':
-        $ctr = new HomeController();
-        echo $ctr->update();
         break;
     case 'remove':
         $ctr = new HomeController();
@@ -81,10 +70,6 @@ case 'logout':
         break;
 
 /* admin */
-    case 'admin':
-        $ctr = new AdminController();
-        echo $ctr->index();
-        break;
     default:
         echo "<h3>404 not found!</h3>";
         break;

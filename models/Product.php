@@ -1,6 +1,5 @@
 <?php
 require_once './models/BaseModel.php';
-require_once './models/Login.php';
 class Product extends BaseModel
 {
 	

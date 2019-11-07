@@ -1,7 +1,6 @@
 <?php
 require_once './models/Product.php';
 require_once './models/Invoice.php';
-require_once './models/Order_detail.php';
 class HomeController
 {
     public function index(){
@@ -37,47 +36,28 @@ class HomeController
         include_once './user/index.php';
         
     }
-    public function addCart(){
-        $id = ''; 
-        if( isset( $_GET['id'])) {
-            $id = $_GET['id']; 
-        } 
-        $model = Product::find($id);
-
-        if( ! isset($_SESSION["cart"][$id])){
-            // tao moi
-            $_SESSION["cart"][$id]['product_name']= $model->product_name;
-            $_SESSION["cart"][$id]['image']= $model->image;
-            $_SESSION["cart"][$id]['sell_price']= $model->sell_price;
-            $_SESSION["cart"][$id]['number']= 1;
-            
-        }else{
-            $_SESSION["cart"][$id]['number']+=1;
-        }
-        // var_dump( $_SESSION["cart"]); die;
-        $_SESSION['addCart']="Thêm món đã đặt thành công!!!";
-        // header("location: product?id=$id");
-        // exit();
-    }
-    public function cart(){
-        if(!isset($_SESSION["cart"])||$_SESSION["cart"]==null){
-            $_SESSION['false']="Bạn chưa mua hàng!!!";
-            header("location: product");
-            exit();
-        }else{
-            include_once './user/cart.php';
-        
-        }
-    }
+    
     public function remove(){
         $key = $_GET['id'];
-        
-        unset($_SESSION['cart'][$key], $_SESSION['tong'],$_SESSION['total']);
-        $dele = Order::delete($key);
-        $_SESSION['success']="Xóa món đã đặt thành công!!!";
+        $a = '';
+        if(isset($_COOKIE)){
+            $a = $_COOKIE['role'];
+            if($a == 1){
+                unset($_SESSION['cart'][$key], $_SESSION['tong'],$_SESSION['total']);
+                $dele = Order::delete($key);
+                $_SESSION['success']="Xóa món đã đặt thành công!!!";
+    
+                header("location: product");
+                exit();
+            }else{
+                $_SESSION['Error']= "Không có quyền xoá!!!";
+                header("location: product");
+                exit();
+            }
+           
 
-        header("location: product");
-        exit();
+        }
+        
     }
     public function postPay(){
         if(!isset($_SESSION['login'])){

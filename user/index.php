@@ -24,10 +24,10 @@
       <?php echo $_SESSION['alert']; unset($_SESSION['alert'])?>
     </div>
     <?php endif?>
-    <?php if (isset($_SESSION['Ok'])): ?> 
+    <?php if (isset($_SESSION['Error'])): ?> 
     <div class="alert  alert-success">
       <strong style="color:brown"> Alert!</strong>
-      <?php echo $_SESSION['Ok']; unset($_SESSION['Ok'])?>
+      <?php echo $_SESSION['Error']; unset($_SESSION['Error'])?>
     </div>
     <?php endif?>
     <?php if (isset($_SESSION['order'])): ?> 
@@ -48,12 +48,6 @@
       <?php echo $_SESSION['success']; unset($_SESSION['success'])?>
     </div>
     <?php endif?>
-    <?php if (isset($_SESSION['false'])): ?> 
-      <div class="alert  alert-success">
-        <strong style="color:brown"> Erorr!</strong>
-        <?php echo $_SESSION['false']; unset($_SESSION['false'])?>
-      </div>
-      <?php endif?>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
          
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -144,7 +138,9 @@
           <img src="./public/<?=$item->getProduct($item->product_id)->image?>" height="80" width="80" class="pt-2 pb-2 pl-2">
           <a href="remove?id=<?= $item->id?>" class="btn btn-danger text-center pt-3 mt-3 ml-2 mr-2" style="height:50px; width:50px;">X</a>
         </div>
+        <br />
       <?php endforeach?>
+      <a href="removeAll" class="btn btn-primary text-center m-a" style="">DELETE ALL</a>
     </section>
         </div>
       </div>
