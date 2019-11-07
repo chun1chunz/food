@@ -6,9 +6,7 @@ class LoginController
 {
 
     public function index(){
-        // global $baseUrl;
-        // global $adminUrl;
-        // global $adminAssetUrl;
+       
         if(isset($_COOKIE["id"])){
             $_SESSION['alert']="Bạn vẫn đang đăng nhập!!!";
             header('location: ./product');
@@ -38,7 +36,6 @@ class LoginController
 	 
 	        } else{
                 $ob = User::where('email', '=', "'" . $email . "'")->get();
-                // var_dump($ob == null); die;
                 if($ob == null){
                     $_SESSION['postLogin_email']="Email khôn tồn tại!!!";
                 
@@ -68,11 +65,7 @@ class LoginController
                         $_COOKIE["role"];
                         setcookie("id", $_SESSION['login']['id'], time()+60*60*0.25);
                         $_COOKIE["id"];                     
-                        //var_dump($_COOKIE["role"]); die;  
-                        // if($_COOKIE["role"] ! 1){
                         
-                        // }
-                        //var_dump((int)$_SESSION['login']['role']); die;
                         if((int)$_SESSION['login']['role'] == 1){
                             $_SESSION['Ok']="Đăng nhập thành công admin.!!!";
                                 
@@ -127,9 +120,9 @@ class LoginController
     }
     public function user_login(){
         
-        //include_once '././views/user/user_login.blade.php';
+       
         if(isset($_SESSION['login']['id'])||isset($_COOKIE["id"])){
-            // var_dump($_COOKIE); die;
+            
                 $_SESSION['alert']="Bạn vẫn đang đăng nhập!!!";
                 header('location: ./product');
                 exit();
@@ -140,7 +133,7 @@ class LoginController
         
     }
     public function postSignup(){
-        //global $baseUrl;        
+         
         $model = new User();
 
         foreach($_POST as $key => $val){
