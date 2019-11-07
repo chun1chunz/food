@@ -74,7 +74,7 @@ class LoginController
                         // }
                         //var_dump((int)$_SESSION['login']['role']); die;
                         if((int)$_SESSION['login']['role'] == 1){
-                            $_SESSION['hi']="Đăng nhập thành công admin.!!!";
+                            $_SESSION['Ok']="Đăng nhập thành công admin.!!!";
                                 
                                 header('location: product');
                                 exit();

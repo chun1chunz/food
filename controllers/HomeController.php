@@ -4,6 +4,15 @@ require_once './models/Invoice.php';
 class HomeController
 {
     public function index(){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+               
+                $a = getdate();
+                $mday = $a['mday'];
+                $mon = $a['mon'];
+                $year = $a['year'];
+                $weekday = $a['weekday'];
+//var_dump($weekday); die;
+                $date_create = $weekday.', '.$mday.':'.$mon.':'.$year;
         //$model = Product::all();
         
         $total_records = Product::count();

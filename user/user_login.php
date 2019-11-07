@@ -40,9 +40,9 @@
                               </div>
           
                               <div class="form-group">
-                                  <label class="col-md-3 control-lable" for="password">Password</label>
+                                  <label class="col-md-3 control-lable" for="password">Mật khẩu</label>
                                   <div class="col-md-9">
-                                      <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+                                      <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu" />
                                           <?php if(isset($_GET['passworderr'])):?>
                                               <span class="text-danger err"><?= $_GET['passworderr'] ?></span>
                                           <?php endif?>
@@ -50,13 +50,13 @@
                                   </div>
                                   <div class="remember pl-3">
                                     <input type="checkbox"  name="remember" value="1">
-                                    <label>Remember login</label>
-                                </div>
+                                    <label>Lưu đăng nhập</label>
+                                  </div>
                                 </div>
                                 
                               <div class="form-group">
                                   <div class="col-sm-9 col-sm-offset-4">
-                                      <button type="submit" class="btn btn-primary submit_login" name="submit" value="Login">Login</button>
+                                      <button type="submit" class="btn btn-primary submit_login" name="submit" value="Login">Đăng Nhập</button>
                                   </div>
                               </div>
                           </form>
@@ -66,5 +66,8 @@
                     </div>
                   </div>
                 </div>
+                <h2>Nếu chưa có tải khoản hãy đăng kí!!! </h2>
+                <a href="signup" class="btn btn-success">Đăng kí</a>
+                <a href="product" class="btn btn-danger">Trang chủ</a>
         </section>
 </div>

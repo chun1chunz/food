@@ -11,7 +11,7 @@
                   <!----------------------------------------                                     -------------------------------------------->   
                           <form class="form-horizontal" name="myForm" id="signupForm" action="<?="postSignup"?>" method="post">
                               <div class="form-group">
-                                  <label class="col-md-3 control-lable">Name</label>
+                                  <label class="col-md-3 control-lable">Tên dùng</label>
                                   <div class="col-md-9">
                                       <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
                                           <?php if(isset($_GET['nameerr'])):?>
@@ -32,7 +32,7 @@
                               </div>
           
                               <div class="form-group">
-                                  <label class="col-md-3 control-lable" for="password">Password</label>
+                                  <label class="col-md-3 control-lable" for="password">Mậ khẩu</label>
                                   <div class="col-md-9">
                                       <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
                                           <?php if(isset($_GET['passworderr'])):?>
@@ -43,7 +43,7 @@
                               </div>
           
                               <div class="form-group">
-                                  <label class="col-md-3 control-lable" for="confirm_password">Confirm password</label>
+                                  <label class="col-md-3 control-lable" for="confirm_password">Nhập lại mật khẩu</label>
                                   <div class="col-md-9">
                                       <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password" />
                                           <?php if(isset($_GET['cpassworderr'])):?>
@@ -54,7 +54,8 @@
                               </div>
                               <div class="form-group">
                                   <div class="col-sm-9 col-sm-offset-4">
-                                      <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Sign up</button>
+                                      <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Đăng kí</button>
+                                      <a href="product" class="btn btn-danger">Trang chủ</a>
                                   </div>
                               </div>
                           </form>
