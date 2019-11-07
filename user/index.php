@@ -35,6 +35,13 @@
       <strong style="color:brown"> Order!</strong>
       <?php echo $_SESSION['order']; unset($_SESSION['order'])?>
     </div>
+
+    <?php endif?>
+    <?php if (isset($_SESSION['Ok'])): ?> 
+    <div class="alert  alert-success">
+      <strong style="color:brown"> Order!</strong>
+      <?php echo $_SESSION['Ok']; unset($_SESSION['Ok'])?>
+    </div>
     <?php endif?>
     <?php if (isset($_SESSION['logout'])): ?> 
     <div class="alert  alert-success">
@@ -53,7 +60,6 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                   <a href="product" class="btn btn-danger inline col-md-3 m-2 text-uppercase" >Trang Chủ</a>
-                  <a href="cart" class="btn btn-danger inline col-md-3 m-2 text-uppercase">Món đã đặt</a>
                   <a href="signup" class="btn btn-danger inline col-md-3 m-2 text-uppercase">Đăng kí</a>
                   <a href="user_login" class="btn btn-danger inline col-md-3 m-2 text-uppercase">Đăng Nhập</a>
                   <a href="logout" class="btn btn-danger inline col-md-3 m-2 text-uppercase">Đăng xuất</a>
@@ -132,7 +138,7 @@
       <div id="cart-form">
       </div>
       <?php foreach($order as $item) :?>
-        <div class="section1 border" style="display:flex;border: 1px solid #ccc;">
+        <div class="section1 border text-justify" style="display:flex;border: 1px solid #ccc;">
           <span class="title pt-3 pr-2 pl-2"><?=$item->getUser($item->user_id)->name?></span>
           <p class="text-center pt-3"><?=$item->getProduct($item->product_id)->product_name?></p>
           <img src="./public/<?=$item->getProduct($item->product_id)->image?>" height="80" width="80" class="pt-2 pb-2 pl-2">
