@@ -67,9 +67,9 @@ class LoginController
                         $_COOKIE["id"];                     
                         
                         if((int)$_SESSION['login']['role'] == 1){
-                            $_SESSION['Ok']="Đăng nhập thành công admin.!!!";
+                            $_SESSION['hi']="Đăng nhập thành công admin.!!!";
                                 
-                                header('location: product');
+                                header('location: adminlte');
                                 exit();
                         }else{
                             if(isset($_SESSION['cart'])){
