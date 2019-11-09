@@ -50,7 +50,7 @@ class HomeController
         $a = '';
         if(isset($_COOKIE)){
             $a = $_COOKIE['role'];
-            if($a == 1){
+            if(isset($a)){
                 unset($_SESSION['cart'][$key], $_SESSION['tong'],$_SESSION['total']);
                 $dele = Order::delete($key);
                 $_SESSION['success']="Xóa món đã đặt thành công!!!";
